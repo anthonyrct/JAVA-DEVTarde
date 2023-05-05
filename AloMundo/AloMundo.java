@@ -6,5 +6,6 @@ package AloMundo;
 public class AloMundo {
 
     public static void main(String[] args) {
-        System.out.print(s:"AloMundo!");//printa AloMundo na tela
-    
+        System.out.println("Alo Mundo!");// printa AloMundo na tela
+    }
+}

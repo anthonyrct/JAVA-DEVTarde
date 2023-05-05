@@ -1,0 +1,23 @@
+Exercicio1-algoritimo
+1.ler a Primeira Variável(valor1);
+2.ler a Segunda Variável(valor2);
+3.se Valor1>Valor2;então{
+    Escreva (o valor1 é maior)
+}senão{
+    Escreva (o Valor2 é Maior);
+}
+
+Exercicio4
+1-ler a quantidade de maças
+2-se a quantidade de maças for > que 12
+3-entao valor da maça = 0,25$
+4-senao valor da maça = 0,30
+5-valor da compra é = quantidade de maças . o valor de maças
+6-imprimir o valor da compra
+
+exercicio6
+1-ler a altura do usuario
+2-ler o sexo do usuario;
+3-se sexo==1(feminino) então peso ideal = 62.*altura-44.7
+4-senão então peso ideal = 72.7*altura-58
+5-mostrar peso ideal
