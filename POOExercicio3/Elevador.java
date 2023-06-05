@@ -36,7 +36,7 @@ public class Elevador {
 
     // métodos adicionais
     // iniciar
-    public void name() {
+    public void iniciar() {
         capacidadeAtual = 0;
         andarAtual = 0;
     }
@@ -57,7 +57,26 @@ public class Elevador {
         if (pessoas < capacidadeAtual) {
          capacidadeAtual -=pessoas; 
         }else{
-            JOptionPane,showMessageDialog(null,"Informe um numero válido, Quantidade atual: "+capacidadeAtual);
+            JOptionPane.showMessageDialog(null,"Informe um numero válido, Quantidade atual: "+capacidadeAtual);
+        }
+    }
+
+    // subir
+    public void subir(int nAndares) {
+        if (nAndares + andarAtual > nMaxAndares) {
+            JOptionPane.showMessageDialog(null, "Não Pode subir");
+            JOptionPane.showMessageDialog(null, "Andar Atual " + andarAtual);
+        } else {
+            andarAtual += nAndares;
+        }
+    }
+    //descer
+    public void descer(int nAndares) {
+        if (nAndares< andarAtual) {
+            andarAtual -= nAndares;
+        } else{
+            JOptionPane.showMessageDialog(null, "Informe um numero válido, Andar atual: "
+            +andarAtual);
         }
     }
 }
