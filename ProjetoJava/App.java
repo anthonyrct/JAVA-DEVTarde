@@ -1,6 +1,5 @@
 package ProjetoJava;
 
-import javax.lang.model.util.ElementScanner14;
 import javax.swing.JOptionPane;
 
 import ProjetoJava.Contas.ContaPF;
@@ -16,11 +15,8 @@ public class App {
     int contaAtual=0;
     while(agenciaAberta){
         int acao1 = Integer.parseInt(JOptionPane.showInputDialog("Informe a ação desejada:"
-                        +"\n 1 - Criar Conta"
-                        +"\n 2 - Acessar Conta"
-                        +"\n 3 - Acessar Conta PJ"
-                        +"\n 4 - Acessar Conta PF"
-                        +"\n 5-Sair"));
+                        +"\n 1 - Criar Conta;"
+                        +"\n 2 - Acessar Conta;"));
         if(acao1==1){
             //criar conta(vou fazer primeiro da PF)
             contasPf[cont] = new ContaPF();//obj criado
@@ -47,12 +43,6 @@ public class App {
                 int opcao = Integer.parseInt(JOptionPane.showInputDialog("Informe a Opção Desejada"));
                 if(opcao ==1){
                     contasPf[contaAtual].getSaldo();
-                } else if(opcao ==2){
-                    contasPf[contaAtual].saque();
-                } else if(opcao ==3){
-                   contasPf[contaAtual].getEmprestimo(); 
-                } else(opcao == 4)
-
                 }
 
             }
