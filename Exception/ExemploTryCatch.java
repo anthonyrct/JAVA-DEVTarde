@@ -35,7 +35,6 @@ public class ExemploTryCatch {
                 JOptionPane.showMessageDialog(null, "ERRO - Aritmético "
                         + "Não Dividirás por Zero!!!");
             } catch (Exception e) {
-                // TODO: handle exception
                 JOptionPane.showMessageDialog(null, "ERRO - Valor");
             }
         }
