@@ -13,7 +13,7 @@ public class App {
         // 1. Cadrastrar Novo Carro.
         Carros c = new Carros();
         c.setMarca(JOptionPane.showInputDialog("Marca do Carro:"));
-        c.setModelo;(JOptionPane.showInputDialog("Modelo do Carro:"));
+        c.setModelo(JOptionPane.showInputDialog("Modelo do Carro:"));
         c.setAno(JOptionPane.showInputDialog("Ano do Carro:"));
         c.setCor(JOptionPane.showInputDialog("Cor do Carro:"));
         listacarros.add(c);
