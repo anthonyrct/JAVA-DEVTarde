@@ -4,11 +4,11 @@ import java.awt.*;
 public class ExemploFlowLayout {
     // construtor
     public ExemploFlowLayout() {
-        // frame GridLayout foi criado
+        // frame GridLayout foi  criado
         JFrame janela1 = new JFrame("Janela1");
         // modificar o Layout do Frame
         FlowLayout flow = new FlowLayout();
-        janela1.setLayout(flow);
+        janela1.setLayout(flow);    
         // criando componentes
         JLabel texto1 = new JLabel("Informe o número de Botões");
         JTextField painel1 = new JTextField("Insira o número", 25);
