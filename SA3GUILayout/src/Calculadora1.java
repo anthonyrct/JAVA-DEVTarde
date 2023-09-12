@@ -1,8 +1,10 @@
+//imports necessarios para fazer a interface Grafica e os Eventos da calculadora
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+//aqui é onde a classe "Calculadora1" está, ela está sendo herdeira de JPanel(basicamente, ela se comporta como uma div se estivessemos em html)
 public class Calculadora1 extends JPanel implements ActionListener {
     private JTextField idadeField;
     private JButton calcularButton;
