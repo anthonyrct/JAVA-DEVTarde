@@ -11,7 +11,7 @@ public class Calculadora1 extends JPanel implements ActionListener {
     private JTextField alturaField;
     private JLabel resultadoLabel;
 
-    public Calculadora1() {
+    public Calculadora1() { 
         super();
         // definindo o LayOut
         setLayout(new GridLayout(4, 2));
