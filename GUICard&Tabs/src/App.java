@@ -3,6 +3,8 @@ public class App {
         // new CardsLayout();
         // new TabbedPaneExemplo();
         // new Exercicio1CardLayout();
-         new Exercicio3CardLayout();
+        //new Exercicio3CardLayout();
+        new Exercicio5CardLayout();
+        
     }
 }

@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import java.awt.CardLayout;
 
 public class Exercicio3CardLayout extends JFrame {
+     //construtor
     public Exercicio3CardLayout() {
         super("Exercicio3 - lista Cards & Tabs");
         // criando o painel Principal
@@ -26,10 +27,10 @@ public class Exercicio3CardLayout extends JFrame {
         Card4.add(new JLabel("Creditos"));
 
         // criando os botões
-        JButton bNext1 = new JButton("next");
-        JButton bNext2 = new JButton("next");
-        JButton bNext3 = new JButton("next");
-        JButton bNext4 = new JButton("next");
+        JButton bNext1 = new JButton("Login");
+        JButton bNext2 = new JButton("Cadastro");
+        JButton bNext3 = new JButton("Creditos");
+        JButton bNext4 = new JButton("pagina inicial");
 
         // adicionando os botoes aos cards
         Card1.add(bNext1);
@@ -37,20 +38,12 @@ public class Exercicio3CardLayout extends JFrame {
         Card3.add(bNext3);
         Card4.add(bNext4);
 
-        //adicionando os cards ao mainP
+        // adicionando os cards ao mainP
 
         mainP.add(Card1);
         mainP.add(Card2);
         mainP.add(Card3);
         mainP.add(Card4);
-        
-
-
-        // set do frame
-        this.add(mainP);
-        this.setDefaultCloseOperation(2);
-        this.setBounds(100, 100, 300, 300);
-        this.setVisible(true);
 
         // colocando ações aos botões
         bNext1.addActionListener(e -> {
@@ -67,7 +60,14 @@ public class Exercicio3CardLayout extends JFrame {
 
         bNext4.addActionListener(e -> {
             cl.next(mainP);
+            
         });
+
+        // set do frame
+        this.add(mainP);
+        this.setDefaultCloseOperation(2);
+        this.setBounds(100, 100, 220, 220);
+        this.setVisible(true);
 
     }
 
