@@ -42,7 +42,7 @@ public class ExemploTratamentoEvento extends JFrame {
         //metodo normal
         botao.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-                nomeSobrenome.setText(caixaNome.getText()+" "+caixasobreNome);
+                nomeSobrenome.setText(caixaNome.getText()+" "+caixasobreNome.getText());
                 caixaNome.setText("");
                 caixasobreNome.setText("");
             }
