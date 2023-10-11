@@ -54,7 +54,7 @@ public class TodoList extends JFrame {
         JPanel inputPanel = new JPanel(new BorderLayout());
         inputPanel.add(taskInputField, BorderLayout.CENTER);
         inputPanel.add(addButton, BorderLayout.EAST);
-
+        
         // Configuração do painel de botões
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         buttonPanel.add(deleteButton);
@@ -64,6 +64,7 @@ public class TodoList extends JFrame {
 
         // Adiciona os componentes ao painel principal
         mainPanel.add(inputPanel, BorderLayout.NORTH);
+
         mainPanel.add(new JScrollPane(taskList), BorderLayout.CENTER);
         mainPanel.add(buttonPanel, BorderLayout.SOUTH);
 
@@ -71,6 +72,10 @@ public class TodoList extends JFrame {
         this.add(mainPanel);
 
         // Tratamento de Eventos da Aplicação
+
+
+        //cores
+        taskList.setBackground(new Color(112, 66, 20));
     }
 
     // metodo que torna a janela visivel
@@ -80,12 +85,16 @@ public class TodoList extends JFrame {
 
     private void addTask() {
         // Adiciona uma nova task à lista de tasks
-        String taskDescription = taskInputField.getText().trim();//remove espaços vazios
+        String taskDescription = taskInputField.getText().trim();// remove espaços vazios
         if (!taskDescription.isEmpty()) {
-        Task newTask = new Task(taskDescription);
-        tasks.add(newTask);
-        updateTaskList();
-        taskInputField.setText("");
+            Task newTask = new Task(taskDescription);
+            tasks.add(newTask);
+            updateTaskList();
+            taskInputField.setText("");
         }
-        }
+    }
+
+    private void updateTaskList() {
+
+    }
 }
