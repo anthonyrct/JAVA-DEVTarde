@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class TodoList extends JFrame {
     // atributos
@@ -72,7 +74,11 @@ public class TodoList extends JFrame {
         this.add(mainPanel);
 
         // Tratamento de Eventos da Aplicação
-
+        markDoneButton.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e) {
+                markDoneButton.addActionListener(this);
+            }
+        });
 
         //cores
         taskList.setBackground(new Color(112, 66, 20));
@@ -96,5 +102,13 @@ public class TodoList extends JFrame {
 
     private void updateTaskList() {
 
+    };
+
+    public class Handler implements ActionListener{
+        
+        @Override
+        public void actionPerformed(ActionEvent e){
+
+        }
     }
 }

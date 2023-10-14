@@ -1,75 +1,71 @@
 package GUIEventExercicio;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.logging.Handler;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class ExemploTratamentoEvento extends JFrame {
-    // atributos
-    private JTextField caixaNome, caixaSobreNome;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class ExemploTratamentoEvento extends JFrame{
+    //atributos
+    private JTextField caixaNome, caixaSobrenome;
     private JLabel nomeSobrenome;
-
+    //construtor
     public ExemploTratamentoEvento() {
-        // construtor
-
-        super("Teste");
-        // criando painel principal
-        JPanel mainP = new JPanel(new GridLayout(3, 2));
-        this.add(mainP);// adicionando o painel principal ao frame
-        // adicionando os elementos/componentes ao painel
+        super("Exemplo 1 - Evento");
+        JPanel mainP = new JPanel(new GridLayout(3,2));
+        this.add(mainP);//add mainP ao frame
+        //add elementos/componentes ao Painel
         mainP.add(new JLabel("Nome: "));
         caixaNome = new JTextField();
         mainP.add(caixaNome);
-        mainP.add(new JLabel("SobreNome: "));
-        JTextField caixasobreNome = new JTextField();
-        mainP.add(caixasobreNome);
-        JButton botao = new JButton("OK");
+        mainP.add(new JLabel("Sobrenome: "));
+        caixaSobrenome = new JTextField();
+        mainP.add(caixaSobrenome);
+        JButton botao = new JButton("Enviar");
         mainP.add(botao);
         nomeSobrenome = new JLabel();
         mainP.add(nomeSobrenome);
-
-        // set do frame
+        //Set do Frame
         this.setDefaultCloseOperation(2);
-        this.setBounds(120, 120, 155, 155);
+        this.setBounds(100, 100, 300, 150);
         this.setVisible(true);
-
-        // metodo encurtado
+        //Tratamento de Evento encurtado
         // botao.addActionListener(e->{
-        // nomeSobrenome.setText(caixaNome.getText()+" "+caixasobreNome());
-        // caixaNome.setText("");
-        // caixasobreNome.setText("");
-        // });
-        // metodo normal
+        //     nomeSobrenome.setText(caixaNome.getText()+" "+caixaSobrenome.getText());
+        //     caixaNome.setText("");
+        //     caixaSobrenome.setText("");
+        // }); 
+        //tratamento de Evento Normal
         // botao.addActionListener(new ActionListener() {
-        // public void actionPerformed(ActionEvent e) {
-        // nomeSobrenome.setText(caixaNome.getText() + " " + caixasobreNome.getText());
-        // caixaNome.setText("");
-        // caixasobreNome.setText("");
-        // }});
-        // chamar o handler(dentro do construtor)
+        //     public void actionPerformed(ActionEvent e) {
+        //     nomeSobrenome.setText(caixaNome.getText()+" "+caixaSobrenome.getText());
+        //     caixaNome.setText("");
+        //     caixaSobrenome.setText("");
+        //     }});
+            //chamar o handler(construtor)
         Handler evt = new Handler();
         botao.addActionListener(evt);
-
-       
     }
-    // tratamento por handler(manipulador)
-    // criando handler
-     // classe será criada fora do construtor
-        public class Handler implements ActionListener {
+    //classe handler vai ser cirada fora do construtor
+    /**
+     * Handler
+     */
+    public class Handler implements ActionListener {
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                nomeSobrenome.setText(caixaNome.getText() + " " + caixaSobreNome.getText());
-                caixaNome.setText("");
-                caixaSobreNome.setText("");
-            }
-
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            nomeSobrenome.setText(caixaNome.getText()+" "+caixaSobrenome.getText());
+            caixaNome.setText("");
+            caixaSobrenome.setText("");
         }
+    
+        
+    }
+        //Tratamento por Handler(manipulador)
+        // criar a classe handler
 }
