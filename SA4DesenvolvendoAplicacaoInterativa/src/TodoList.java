@@ -43,7 +43,7 @@ public class TodoList extends JFrame {
         listModel = new DefaultListModel<>();
         taskList = new JList<>(listModel);
 
-        // Inicializa campos de entrada, botões e JComboBox
+        // Inicializa campos de entrada, botões e JComboBox 
         taskInputField = new JTextField();
         addButton = new JButton("Adicionar");
         deleteButton = new JButton("Excluir");
@@ -56,7 +56,7 @@ public class TodoList extends JFrame {
         JPanel inputPanel = new JPanel(new BorderLayout());
         inputPanel.add(taskInputField, BorderLayout.CENTER);
         inputPanel.add(addButton, BorderLayout.EAST);
-        
+
         // Configuração do painel de botões
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         buttonPanel.add(deleteButton);
@@ -74,13 +74,9 @@ public class TodoList extends JFrame {
         this.add(mainPanel);
 
         // Tratamento de Eventos da Aplicação
-        markDoneButton.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e) {
-                markDoneButton.addActionListener(this);
-            }
-        });
-
-        //cores
+        Handler evt = new Handler();
+        addButton.addActionListener(evt);
+        // cores
         taskList.setBackground(new Color(112, 66, 20));
     }
 
@@ -104,11 +100,15 @@ public class TodoList extends JFrame {
 
     };
 
-    public class Handler implements ActionListener{
-        
+    public class Handler implements ActionListener {
+
         @Override
         public void actionPerformed(ActionEvent e){
-
+        if(e.getSource()== addButton){
+            addTask();
+        } else if (e.getSource()== markDoneButton){
+            
+        }
         }
     }
 }
