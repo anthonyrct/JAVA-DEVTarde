@@ -1,0 +1,14 @@
+metodos para fazer:
+
+
+1-botoes(adiciona, concluir, apgar, limpar concluidas)
+
+2-teclado(o usuario poder usar o teclado para mexer na tabela)
+
+3-filtra(JComboBox da "Ativa", "Concluidas" e "A fazer"
+
+4-evento de janela (Quando a janela fechar, algo vai acontecer)
+
+5-evento de janela de dialogo (quando o usuario clicar em algum local, irá aparecer uma janela com 2 opções, e as 2 opções devem fazer algo)
+
+
