@@ -12,6 +12,9 @@ import javax.swing.JTextField;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 public class TodoList extends JFrame {
     // atributos
@@ -43,7 +46,7 @@ public class TodoList extends JFrame {
         listModel = new DefaultListModel<>();
         taskList = new JList<>(listModel);
 
-        // Inicializa campos de entrada, botões e JComboBox 
+        // Inicializa campos de entrada, botões e JComboBox
         taskInputField = new JTextField();
         addButton = new JButton("Adicionar");
         deleteButton = new JButton("Excluir");
@@ -76,6 +79,21 @@ public class TodoList extends JFrame {
         // Tratamento de Eventos da Aplicação
         Handler evt = new Handler();
         addButton.addActionListener(evt);
+
+        // Adiciona um KeyListener ao campo de entrada
+        taskInputField.addKeyListener((KeyListener) new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    addTask(); // Adiciona uma nova tarefa quando a tecla Enter é pressionada
+                } else if (e.getKeyCode() == KeyEvent.VK_DELETE) {
+                    // Código para excluir tarefa quando a tecla Delete é pressionada
+                    deleteTask();
+                }
+            }
+
+        });
+
         // cores
         taskList.setBackground(new Color(112, 66, 20));
     }
@@ -96,19 +114,74 @@ public class TodoList extends JFrame {
         }
     }
 
+    private void deleteTask() {
+        // Lógica para excluir a tarefa selecionada
+        int selectedIndex = taskList.getSelectedIndex();
+        if (selectedIndex != -1) {
+            tasks.remove(selectedIndex);
+            updateTaskList();
+        }
+    }
+
     private void updateTaskList() {
+        // Limpa o listModel antes de adicionar as novas tarefas
+        listModel.clear();
 
-    };
+        // Adiciona as descrições das tarefas ao listModel
+        for (Task task : tasks) {
+            listModel.addElement(task.getDescripition());
+        }
 
-    public class Handler implements ActionListener {
+        // Define o listModel no JList para atualizar a exibição das tarefas
+        taskList.setModel(listModel);
+    }
+
+    public static void main(String[] args) {
+        TodoList todoList = new TodoList();
+        todoList.run();
+    }
+
+    public class Handler implements ActionListener, KeyListener {
 
         @Override
-        public void actionPerformed(ActionEvent e){
-        if(e.getSource()== addButton){
-            addTask();
-        } else if (e.getSource()== markDoneButton){
-            
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource() == addButton) {
+                addTask();
+            } else if (e.getSource() == markDoneButton) {
+
+            }
         }
+
+        @Override
+        public void keyPressed(KeyEvent e) {
+            // Lógica para lidar com eventos de teclado
+            if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                // Código para marcar a tarefa como concluída quando a tecla Espaço é
+                // pressionada
+                markTaskAsDone();
+            }
+        }
+
+        private void markTaskAsDone() {
+            int selectedIndex = taskList.getSelectedIndex();
+            if (selectedIndex != -1) {
+                Task selectedTask = tasks.get(selectedIndex);
+                selectedTask.setDone(true); // Marca a tarefa como concluída (você deve ter um método setDone na sua
+                                            // classe Task)
+                updateTaskList();
+            }
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+            // Métodos não utilizados, mas necessários devido à implementação da interface
+            // KeyListener
+        }
+
+        @Override
+        public void keyTyped(KeyEvent e) {
+            // Métodos não utilizados, mas necessários devido à implementação da interface
+            // KeyListener
         }
     }
 }
