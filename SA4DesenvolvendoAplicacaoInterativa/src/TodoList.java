@@ -95,7 +95,7 @@ public class TodoList extends JFrame {
         });
 
         // cores
-        taskList.setBackground(new Color(112, 66, 20));
+        //taskList.setBackground(new Color(112, 66, 20));
     }
 
     // metodo que torna a janela visivel
@@ -147,18 +147,31 @@ public class TodoList extends JFrame {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == addButton) {
                 addTask();
-            } else if (e.getSource() == markDoneButton) {
-
             }
+
+            deleteButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    int selectedIndex = taskList.getSelectedIndex();
+                    if (selectedIndex >= 0) {
+                        tasks.remove(selectedIndex);
+                        updateTaskList();
+                    }
+                }
+            });
         }
 
         @Override
         public void keyPressed(KeyEvent e) {
             // Lógica para lidar com eventos de teclado
             if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                markTaskAsDone();
                 // Código para marcar a tarefa como concluída quando a tecla Espaço é
                 // pressionada
-                markTaskAsDone();
+
+            } else if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+                deleteTask();
+                updateTaskList();
             }
         }
 
