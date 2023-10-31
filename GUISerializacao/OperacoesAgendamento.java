@@ -1,3 +1,5 @@
+package GUISerializacao;
+
 import java.util.List;
 
 import javax.swing.JTable;
