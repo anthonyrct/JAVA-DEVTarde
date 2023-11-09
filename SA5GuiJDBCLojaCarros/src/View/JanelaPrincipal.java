@@ -3,7 +3,6 @@ package View;
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 
-
 public class JanelaPrincipal extends JFrame {
     // criação do tabbedPane para incluir as tabs
     private JTabbedPane jTPane;
