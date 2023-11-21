@@ -72,20 +72,6 @@ public class CarrosPainel extends JPanel {
         // atualizar a tabela na abertura da janela
         atualizarTabela();
 
-        // tratamento de eventos(construtor)
-        table.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent evt) {
-                linhaSelecionada = table.rowAtPoint(evt.getPoint());
-                if (linhaSelecionada != -1) {
-                    carMarcaField.setText((String) table.getValueAt(linhaSelecionada, 0));
-                    carModeloField.setText((String) table.getValueAt(linhaSelecionada, 1));
-                    carAnoField.setText((String) table.getValueAt(linhaSelecionada, 2));
-                    carPlacaField.setText((String) table.getValueAt(linhaSelecionada, 3));
-                    carValorField.setText((String) table.getValueAt(linhaSelecionada, 4));
-                }
-            }
-        });
         CarrosControl operacoes = new CarrosControl(carros, tableModel, table);
         // Configura a ação do botão "cadastrar" para adicionar um novo registro no
         // banco de dados

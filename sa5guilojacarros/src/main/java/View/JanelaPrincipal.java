@@ -2,6 +2,7 @@ package View;
 
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
+import View.VendasPainel;
 
 public class JanelaPrincipal extends JFrame {
     // criação do tabbedPane para incluir as tabs
@@ -14,6 +15,8 @@ public class JanelaPrincipal extends JFrame {
         // tab1 carros
         CarrosPainel tab1 = new CarrosPainel();
         jTPane.add("Carros", tab1);
+        VendasPainel tab2 = new VendasPainel();
+        jTPane.add("Vendas", tab2);
         setBounds(100, 100, 600, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
