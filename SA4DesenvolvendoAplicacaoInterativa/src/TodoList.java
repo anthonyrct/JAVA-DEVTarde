@@ -86,8 +86,7 @@ public class TodoList extends JFrame {
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     addTask(); // Adiciona uma nova tarefa quando a tecla Enter é pressionada
-                } else if (e.getKeyCode() == KeyEvent.VK_DELETE) {
-                    // Código para excluir tarefa quando a tecla Delete é pressionada
+                } else if (e.getKeyCode() == KeyEvent.VK_1) {
                     deleteTask();
                 }
             }
@@ -95,7 +94,7 @@ public class TodoList extends JFrame {
         });
 
         // cores
-        //taskList.setBackground(new Color(112, 66, 20));
+        // taskList.setBackground(new Color(112, 66, 20));
     }
 
     // metodo que torna a janela visivel
