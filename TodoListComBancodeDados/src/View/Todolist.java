@@ -1,3 +1,10 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,12 +16,10 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+
+import Controller.TaskController;
+import Controller.TaskDAO;
+import Model.Task;
 
 public class Todolist extends JFrame {
     // atributos
@@ -93,6 +98,25 @@ public class Todolist extends JFrame {
                 markDoneButton();
             }
         });
+
+        new TaskDAO();
+
+        // incluindo elementos do banco na criação do painel
+        atualizarTabela();
+
+        // tratamento de Eventos
+        table.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent evt) {
+                linhaSelecionada = table.rowAtPoint(evt.getPoint());
+                if(linhaSelecionada != -1){
+                    ListdescricaoField.setText((String) table.getValueAt(linhaSelecionada, 0));
+                }
+            }
+        });
+
+        //cria um objeto operacoes da classe TaskController para executar operacoes no danco de dados
+        TaskController operacoes = new TaskController();
 
     }
 
